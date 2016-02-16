@@ -1,108 +1,176 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Калькулятор умножения матриц</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-   <link tipe="text/css" rel="stylesheet" href="style.css"/>
-   <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
-   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/2.7.0/math.min.js'></script>
-   <script type='text/javascript' src='script.js'></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link tipe="text/css" rel="stylesheet" href="style.css" />
+  <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/2.7.0/math.min.js'></script>
+  <script type='text/javascript' src='script.js'></script>
 </head>
+
 <body>
-<div id="wrapper">
-<div class="right">
-<div class="matrix">
-  <table id="matrix_C">
-      <tr>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-      </tr>
-      <tr>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-      </tr>
-      <tr>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-      </tr>
-      <tr>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-      </tr>
-  </table>
-</div>
-<div class="matrix">
-<table id="matrix_A">
-    <tr>
-      <td><input type="number" value="1"></td>
-      <td><input type="number" value="2"></td>
-    </tr>
-    <tr>
-      <td><input type="number" value="2"></td>
-      <td><input type="number" value="4"></td>
-    </tr>
-    <tr>
-      <td><input type="number" value="1"></td>
-      <td><input type="number" value="2"></td>
-    </tr>
-    <tr>
-      <td><input type="number" value="2"></td>
-      <td><input type="number" value="4"></td>
-    </tr>
-</table>
-</div>
-<table id="matrix_B">
-    <tr>
-      <td><input type="number"></td>
-      <td><input type="number"></td>
-      <td><input type="number"></td>
-    </tr>
-    <tr>
-      <td><input type="number"></td>
-      <td><input type="number"></td>
-      <td><input type="number"></td>
-    </tr>
-</table>
-</div>
-<div class='left'>
- <div class="button_inner" id="multiply">
-   <label>Умножить матрицы
-    <INPUT type="button" onclick="test()"/></label>
- </div>
- <div class="button_inner" id="clean">
-   <label><img src="picture\arrow.jpg"> Очистить матрицы
-    <INPUT type="button" onclick="clean()"/></label>
- </div>
- <div class="button_inner" id="change">
-  <label><img src="picture\double_arrow.jpg"> Поменять матрицы местами
-   <INPUT type="button" onclick="change()"/></label>
- </div>
- <div class="button_col" id='left_col'>
-    <label><input type="radio" name="check_matrix" id="check_A">Матрица А</label>
- <div class="table_buttons">
-   <label><img src="picture\plus.jpg"> Добавить<INPUT type="button" onclick="addRow()"/></label>
- </div>
- <div class="table_buttons">
-   <label><img src="picture\plus.jpg"> Добавить<INPUT type="button" onclick="addCol()"/></label>
- </div>
- </div>
- <div class="button_col">
-    <label><input type="radio" name="check_matrix" id="check_B">Матрица В</label>
- <div class="table_buttons">
-   <label><img src="picture\minus.jpg"> Удалить<INPUT type="button" onclick="deleteRow()"/></label>
- </div>
- <div class="table_buttons">
-   <label><img src="picture\minus.jpg"> Удалить<INPUT type="button" onclick="deleteCol()"/></label>
-  </div>
- </div>
- <div class="button_col">
-   <p>строку</p>
-   <p>столбец</p>
-</div>
-</div>
+  <div id="wrapper">
+    <div class="right">
+      <div class="matrix">
+        <table id="matrix_C">
+          <tr>
+            <td>
+              <input type="number">
+            </td>
+            <td>
+              <input type="number">
+            </td>
+            <td>
+              <input type="number">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number">
+            </td>
+            <td>
+              <input type="number">
+            </td>
+            <td>
+              <input type="number">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number">
+            </td>
+            <td>
+              <input type="number">
+            </td>
+            <td>
+              <input type="number">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number">
+            </td>
+            <td>
+              <input type="number">
+            </td>
+            <td>
+              <input type="number">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="matrix">
+        <table id="matrix_A">
+          <tr>
+            <td>
+              <input type="number" value="1">
+            </td>
+            <td>
+              <input type="number" value="2">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" value="2">
+            </td>
+            <td>
+              <input type="number" value="4">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" value="1">
+            </td>
+            <td>
+              <input type="number" value="2">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" value="2">
+            </td>
+            <td>
+              <input type="number" value="4">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <table id="matrix_B">
+        <tr>
+          <td>
+            <input type="number">
+          </td>
+          <td>
+            <input type="number">
+          </td>
+          <td>
+            <input type="number">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="number">
+          </td>
+          <td>
+            <input type="number">
+          </td>
+          <td>
+            <input type="number">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class='left'>
+      <div class="button_inner" id="multiply">
+        <label>Умножить матрицы
+          <INPUT type="button" onclick="test()" />
+        </label>
+      </div>
+      <div class="button_inner" id="clean">
+        <label><img src="picture\arrow.jpg"> Очистить матрицы
+          <INPUT type="button" onclick="clean()" />
+        </label>
+      </div>
+      <div class="button_inner" id="change">
+        <label><img src="picture\double_arrow.jpg"> Поменять матрицы местами
+          <INPUT type="button" onclick="change()" />
+        </label>
+      </div>
+      <div class="button_col" id='left_col'>
+        <label>
+          <input type="radio" name="check_matrix" id="check_A">Матрица А</label>
+        <div class="table_buttons">
+          <label><img src="picture\plus.jpg"> Добавить
+            <INPUT type="button" onclick="addRow()" />
+          </label>
+        </div>
+        <div class="table_buttons">
+          <label><img src="picture\plus.jpg"> Добавить
+            <INPUT type="button" onclick="addCol()" />
+          </label>
+        </div>
+      </div>
+      <div class="button_col">
+        <label>
+          <input type="radio" name="check_matrix" id="check_B">Матрица В</label>
+        <div class="table_buttons">
+          <label><img src="picture\minus.jpg"> Удалить
+            <INPUT type="button" onclick="deleteRow()" />
+          </label>
+        </div>
+        <div class="table_buttons">
+          <label><img src="picture\minus.jpg"> Удалить
+            <INPUT type="button" onclick="deleteCol()" />
+          </label>
+        </div>
+      </div>
+      <div class="button_col">
+        <p>строку</p>
+        <p>столбец</p>
+      </div>
+    </div>
 </body>
+
 </html>
