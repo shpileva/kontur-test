@@ -65,6 +65,7 @@ $(document).ready(function() {
     }
   });
 });
+
 function addMatrixC(a) {
   var table = document.getElementById('matrix_C');
   //  var tbody = document.getElementById('mc');
@@ -96,20 +97,12 @@ function readMatrix(tableID) {
   });
   return A;
 }
+
 function canMultiply(A, B) {
   return A[0].length === B.length;
 }
+
 function multiplyMatrix() {
-  var $matrixB = $('#matrix_B');
-  var $trsB = $matrixB.find('tr');
-  var B = [];
-  $trsB.each(function(i) {
-    B.push([]);
-    $(this).find('input').each(function() {
-      var val = $(this).val();
-      B[i].push(val);
-    });
-  });
   var A = readMatrix('#matrix_A');
   var B = readMatrix('#matrix_B');
   if (!canMultiply(A, B)) {
@@ -122,15 +115,28 @@ function multiplyMatrix() {
   var C = math.multiply(A, B);
   addMatrixC(C);
 }
-$(document).ready(function(){
-$("td").keydown(function(){
+$(document).ready(function() {
+  $("td").keydown(function() {
     $(".left").css("background-color", "rgba(81, 147, 232, 1)");
     $('.cantMultiply').empty();
+  });
 });
-});
+
 function clean() {
-  var $right = $('.right');
-  var $tds = $right.find('td');
-  var $input = $tds.find('input');
-  $('input').empty();
+  $(document).ready(function() {
+    $("input").val("");
+  });
 }
+
+$(document).ready(function() {
+  $("input").keyup(function() {
+    var $value = this.value
+    if ($value > 10) {
+      $value = 10;
+    };
+    if ($value < 0) {
+      $value = 0;
+    };
+    this.value = $value;
+  });
+});

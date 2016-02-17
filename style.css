@@ -7,6 +7,9 @@ html, body {
   color: #404040;
   line-height: 20px;
 }
+.wrapper {
+  height: 100%;
+}
 .right {
   float: right;
   width: 70%;
@@ -90,13 +93,13 @@ input[type="radio"] {
   text-align: center;
 }
 #clean img {
-  width: 20px;
-  height: 15px;
-  margin: 5px 0px 0px 0px;
+  width: 18px;
+  height: 12px;
+  margin: 8px 0px 0px 0px;
 }
 #change {
   width: 220px;
-  height: 25px;
+  height: 30px;
   background-color: #F5F5F5;
   border: 1px solid #A9A9A9;
   border-bottom: 1px solid #808080;
@@ -106,8 +109,8 @@ input[type="radio"] {
 }
 #change img {
   width: 10px;
-  height: 10px;
-  margin: 5px 0px 0px 0px;
+  height: 12px;
+  margin: 8px 0px 0px 0px;
 }
 .table_buttons {
   height: 25px;
@@ -121,8 +124,8 @@ input[type="radio"] {
   text-align: center;
 }
 .table_buttons img {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   margin: 5px 0px 0px 0px;
 }
 .button_col {
@@ -135,6 +138,7 @@ input[type="radio"] {
 .button_col p {
   margin-bottom: 21px;
 }
+
 /*.pentagon {
   position: relative;
   margin: 50px auto;
