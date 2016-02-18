@@ -1,7 +1,7 @@
 function check() {
-  if ($(".table_buttons").hasClass("matrix_A")) {
+  if ($('.table_buttons').hasClass('matrix_A')) {
     var tableID = ('matrix_A');
-  } else if ($(".table_buttons").hasClass("matrix_B")) {
+  } else if ($('.table_buttons').hasClass('matrix_B')) {
     var tableID = ('matrix_B');
   }
   return tableID;
@@ -51,24 +51,28 @@ function deleteCol() {
 
 $(document).ready(function() {
   $('input[id="check_A"]').click(function() {
-    if ($(this).is(":checked")) {
-      $('.table_buttons').addClass("matrix_A");
-      $('.table_buttons').removeClass("matrix_B");
+    if ($(this).is(':checked')) {
+      $('.table_buttons').addClass('matrix_A');
+      $('.table_buttons').removeClass('matrix_B');
     }
   });
 });
 $(document).ready(function() {
   $('input[id="check_B"]').click(function() {
-    if ($(this).is(":checked")) {
-      $('.table_buttons').addClass("matrix_B");
-      $('.table_buttons').removeClass("matrix_A");
+    if ($(this).is(':checked')) {
+      $('.table_buttons').addClass('matrix_B');
+      $('.table_buttons').removeClass('matrix_A');
     }
   });
 });
 
 function addMatrixC(a) {
-  var table = document.getElementById('matrix_C');
-  //  var tbody = document.getElementById('mc');
+  $(document).ready(function(){
+    $('#matrix_C').empty();
+  });
+  var conteiner = document.getElementById('matrix_C');
+  var table = document.createElement('table');
+  var tbody = document.createElement('tbody');
   var rowsA = a.length;
   var colsA = a[0].length;
   for (i = 0; i < rowsA; i++) {
@@ -79,9 +83,10 @@ function addMatrixC(a) {
       cell.textContent = vals[b];
       row.appendChild(cell);
     }
-    table.appendChild(row);
+    tbody.appendChild(row);
   }
-  //    table.appendChild(tbody);
+      table.appendChild(tbody);
+      conteiner.appendChild(table);
 }
 
 function readMatrix(tableID) {
@@ -107,7 +112,7 @@ function multiplyMatrix() {
   var B = readMatrix('#matrix_B');
   if (!canMultiply(A, B)) {
     $(document).ready(function() {
-      $('.left').css("background-color", "rgba(245, 130, 130, 0.5)");
+      $('.left').css('background-color', 'rgba(245, 130, 130, 0.5)');
       $('.cantMultiply').append('<p>Такие матрицы нельзя перемножить,<br>так как количество столбцов матрицы А<br>не равно количеству строк матрицы B.<p>');
     });
     return;
@@ -116,25 +121,25 @@ function multiplyMatrix() {
   addMatrixC(C);
 }
 $(document).ready(function() {
-  $("td").keydown(function() {
-    $(".left").css("background-color", "rgba(81, 147, 232, 1)");
+  $('td').keydown(function() {
+    $('.left').css('background-color', 'rgba(81, 147, 232, 1)');
     $('.cantMultiply').empty();
   });
 });
 
 function clean() {
   $(document).ready(function() {
-    $("input").val("");
+    $('input').val('');
   });
 }
 
 $(document).ready(function() {
-  $("input").keyup(function() {
-    var $value = this.value
+  $('input').keyup(function() {
+    var $value = this.value;
     if ($value > 10) {
       $value = 10;
-    };
-    if ($value < 0) {
+    }
+    else if ($value < 0) {
       $value = 0;
     };
     this.value = $value;

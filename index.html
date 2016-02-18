@@ -5,58 +5,58 @@
   <title>Калькулятор умножения матриц</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link tipe="text/css" rel="stylesheet" href="style.css" />
-  <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
-  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/2.7.0/math.min.js'></script>
-  <script type='text/javascript' src='script.js'></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/2.7.0/math.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
-  <div id="wrapper">
+  <div class="wrapper">
     <div class="right">
-      <div class="matrix">
-        <table id="matrix_C">
+      <div class="matrix" id="matrix_C">
+        <table>
           <tr>
             <td>
-              <input type="number">
+              <input type="number" disabled>
             </td>
             <td>
-              <input type="number">
+              <input type="number" disabled>
             </td>
             <td>
-              <input type="number">
+              <input type="number" disabled>
             </td>
           </tr>
           <tr>
             <td>
-              <input type="number">
+              <input type="number" disabled>
             </td>
             <td>
-              <input type="number">
+              <input type="number" disabled>
             </td>
             <td>
-              <input type="number">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <input type="number">
-            </td>
-            <td>
-              <input type="number">
-            </td>
-            <td>
-              <input type="number">
+              <input type="number" disabled>
             </td>
           </tr>
           <tr>
             <td>
-              <input type="number">
+              <input type="number" disabled>
             </td>
             <td>
-              <input type="number">
+              <input type="number" disabled>
             </td>
             <td>
-              <input type="number">
+              <input type="number" disabled>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" disabled>
+            </td>
+            <td>
+              <input type="number" disabled>
+            </td>
+            <td>
+              <input type="number" disabled>
             </td>
           </tr>
         </table>
@@ -65,39 +65,43 @@
         <table id="matrix_A">
           <tr>
             <td>
-              <input type="number" value="1">
+              <input type="number">
             </td>
             <td>
-              <input type="number" value="2">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <input type="number" value="2">
-            </td>
-            <td>
-              <input type="number" value="4">
+              <input type="number">
             </td>
           </tr>
           <tr>
             <td>
-              <input type="number" value="1">
+              <input type="number">
             </td>
             <td>
-              <input type="number" value="2">
+              <input type="number">
             </td>
           </tr>
           <tr>
             <td>
-              <input type="number" value="2">
+              <input type="number">
             </td>
             <td>
-              <input type="number" value="4">
+              <input type="number">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number">
+            </td>
+            <td>
+              <input type="number">
             </td>
           </tr>
         </table>
       </div>
+      <div class="matrix" id="caption">
+        <p>A</p>
+      </div>
       <table id="matrix_B">
+        <caption>B</caption>
         <tr>
           <td>
             <input type="number">
@@ -122,7 +126,7 @@
         </tr>
       </table>
     </div>
-    <div class='left'>
+    <div class="left">
       <div class="button_inner" id="multiply">
         <label>Умножить матрицы
           <input type="button" onclick="multiplyMatrix()" />
@@ -133,12 +137,12 @@
           <input type="button" onclick="clean()" />
         </label>
       </div>
-      <div class="button_inner" id="change">
+      <div class="button_inner"  id="change">
         <label><img src="picture\double_arrow.png"> Поменять матрицы местами
           <input type="button" onclick="change()" />
         </label>
       </div>
-      <div class="button_col" id='left_col'>
+      <div class="button_col" id="left_col">
         <label>
           <input type="radio" checked name="check_matrix" id="check_A">Матрица А</label>
         <div class="table_buttons">
