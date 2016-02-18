@@ -63,7 +63,6 @@ input::-webkit-inner-spin-button {
 input[type="button"] {
   display: none;
 }
-
 input[type="radio"] {
   background-color: #F5F5F5;
   border-radius: 50%;
@@ -118,6 +117,9 @@ input[type="radio"] {
   transform: rotate(55deg) skew(20deg);
   border-radius: 12%;
 }
+#multiply:active {
+  box-shadow: 0 1px 1px rgba(18, 74, 4, 0.5) inset;
+}
 #clean {
   width: 160px;
   height: 30px;
@@ -138,6 +140,8 @@ input[type="radio"] {
 }
 #clean:active {
   background: #b5b5b5;
+  border-bottom: 1px solid rgba(105, 106, 107, 0.5);
+  box-shadow: 0 2px 2px rgba(135, 137, 140, 0.5) inset;
 }
 #change {
   width: 220px;
@@ -159,6 +163,11 @@ input[type="radio"] {
 }
 #change:active {
   background: #b5b5b5;
+  border-bottom: 1px solid rgba(105, 106, 107, 0.5);
+  box-shadow: 0 2px 2px rgba(135, 137, 140, 0.5) inset;
+}
+#change input {
+  display: none;
 }
 .table_buttons {
   height: 25px;
@@ -181,6 +190,8 @@ input[type="radio"] {
 }
 .table_buttons:active {
   background: #b5b5b5;
+  border-bottom: 1px solid rgba(105, 106, 107, 0.5);
+  box-shadow: 0 2px 2px rgba(135, 137, 140, 0.5) inset;
 }
 .button_col {
   display: inline-block;

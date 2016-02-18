@@ -67,7 +67,7 @@ $(document).ready(function() {
 });
 
 function addMatrixC(a) {
-  $(document).ready(function(){
+  $(document).ready(function() {
     $('#matrix_C').empty();
   });
   var conteiner = document.getElementById('matrix_C');
@@ -85,8 +85,8 @@ function addMatrixC(a) {
     }
     tbody.appendChild(row);
   }
-      table.appendChild(tbody);
-      conteiner.appendChild(table);
+  table.appendChild(tbody);
+  conteiner.appendChild(table);
 }
 
 function readMatrix(tableID) {
@@ -106,16 +106,42 @@ function readMatrix(tableID) {
 function canMultiply(A, B) {
   return A[0].length === B.length;
 }
+$(document).ready(function() {
+  $('input[id="change_matrix"]').click(function() {
+    if ($(this).is(':checked')) {
+      $('#matrix_A').removeClass('matrix');
+      $('#matrix_B').addClass('matrix');
+      $('#matrix_B').after($('#matrix_A'));
+      $('#caption').remove();
+      $('#matrix_A').append('<caption>A</caption>')
+        .css('font-size', '30px');
+      $('#matrix_A').css('caption-side', 'bottom');
+    }
+  });
+});
 
 function multiplyMatrix() {
-  var A = readMatrix('#matrix_A');
-  var B = readMatrix('#matrix_B');
+  if ($('#change_matrix').is(':checked')) {
+    var A = readMatrix('#matrix_B');
+    var B = readMatrix('#matrix_A');
+  } else {
+    var A = readMatrix('#matrix_A');
+    var B = readMatrix('#matrix_B');
+  };
   if (!canMultiply(A, B)) {
-    $(document).ready(function() {
-      $('.left').css('background-color', 'rgba(245, 130, 130, 0.5)');
-      $('.cantMultiply').append('<p>Такие матрицы нельзя перемножить,<br>так как количество столбцов матрицы А<br>не равно количеству строк матрицы B.<p>');
-    });
-    return;
+    if ($('#change_matrix').is(':checked')) {
+      $(document).ready(function() {
+        $('.left').css('background-color', 'rgba(245, 130, 130, 0.5)');
+        $('.cantMultiply').append('<p>Такие матрицы нельзя перемножить,<br>так как количество столбцов матрицы B<br>не равно количеству строк матрицы A.<p>');
+      });
+      return;
+    } else {
+      $(document).ready(function() {
+        $('.left').css('background-color', 'rgba(245, 130, 130, 0.5)');
+        $('.cantMultiply').append('<p>Такие матрицы нельзя перемножить,<br>так как количество столбцов матрицы А<br>не равно количеству строк матрицы B.<p>');
+      });
+      return;
+    }
   }
   var C = math.multiply(A, B);
   addMatrixC(C);
@@ -138,10 +164,12 @@ $(document).ready(function() {
     var $value = this.value;
     if ($value > 10) {
       $value = 10;
-    }
-    else if ($value < 0) {
+    } else if ($value < 0) {
       $value = 0;
     };
     this.value = $value;
   });
 });
+// function change() {
+//
+// }
